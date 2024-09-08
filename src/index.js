@@ -19,7 +19,7 @@ searchForm.addEventListener('submit', (e) => {
 })
 
 metricBtn.addEventListener('click', () => {
-    let metricUsed = toggleMetrics()
+    activeMetric = toggleMetrics()
     if(!searchInput.value){
         getWeather(currentLocation.textContent, metricUsed)
     }else{
