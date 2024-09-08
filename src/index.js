@@ -21,12 +21,12 @@ searchForm.addEventListener('submit', (e) => {
 metricBtn.addEventListener('click', () => {
     activeMetric = toggleMetrics()
     if(!searchInput.value){
-        getWeather(currentLocation.textContent, metricUsed)
+        getWeather(currentLocation.textContent, activeMetric)
     }else{
-        if(metricUsed == 'metric'){
-            getWeather(searchInput.value, metricUsed)
+        if(activeMetric == 'metric'){
+            getWeather(searchInput.value, activeMetric)
         }else{
-            getWeather(searchInput.value, metricUsed)
+            getWeather(searchInput.value, activeMetric)
         }
     }
 })
@@ -113,10 +113,9 @@ async function getWeather(location, metric) {
     }
 }
 
-activeMetric = toggleMetrics()
-getWeather('Manila', activeMetric)
+function initialLoad(){
+    activeMetric = toggleMetrics()
+    getWeather('Manila', activeMetric)
+}
 
-
-// THINGS TO DO
-
-// FONT AND LOGO DESIGN
+initialLoad()
