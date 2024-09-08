@@ -55,6 +55,17 @@ async function changeDomMetric(metricPassed){
     return metricSymbol
 }
 
+function getAlert(alert){
+    let rawAlert
+
+    if(alert){
+        rawAlert = alert[0].headline
+    }else{
+        rawAlert = 'No alert for today'
+    }
+    return rawAlert
+}
+
 async function getWeather(location, metric) {
     try{
         showLoader()
@@ -74,9 +85,9 @@ async function getWeather(location, metric) {
         const rainy = `${weather.weatherData.days[0].precipprob}%`
         const snowy = `${weather.weatherData.days[0].snow}%`
         const feel = `${weather.weatherData.days[0].feelslike}${metricSymbol}`
-        const rise = `${sunriseRaw[0]}:${sunriseRaw[1]}AM`
-        const set = `${sunsetRaw[0]}:${sunsetRaw[1]}PM`
-        const alert = weather.weatherData.alert || 'No alert for today'
+        const rise = `${sunriseRaw[0]}:${sunriseRaw[1]} AM`
+        const set = `${sunsetRaw[0]}:${sunsetRaw[1]} PM`
+        const alert = getAlert(weather.weatherData.alert)
         let todayWeather = getMax(sunnyValue, rainyValue, snowyValue)
 
         await todayDetails(todayWeather, locationTitle, description, sunny, rainy, snowy, feel, rise, set, alert)
@@ -103,7 +114,7 @@ async function getWeather(location, metric) {
 }
 
 activeMetric = toggleMetrics()
-getWeather('London', activeMetric)
+getWeather('Manila', activeMetric)
 
 
 // THINGS TO DO

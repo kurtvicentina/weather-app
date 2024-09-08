@@ -21,7 +21,7 @@ const loaderContainer = document.querySelector('#loaderContainer')
 export async function todayDetails(todayWeather, location, description,sunny, rainy, snowy, feelsLike, rise, set, alert){
     errorContainer.classList.add('hidden')
     successContainer.classList.remove('hidden')
-    todayWeatherContainer.classList.add(`today-${todayWeather}`)
+    todayWeatherContainer.setAttribute('class', `today-${todayWeather}`)
     locationTitle.textContent = location
     descriptionTitle.textContent = `${description}`
     sunnyTitle.textContent = `Sun chances: ${sunny}`

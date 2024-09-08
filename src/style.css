@@ -89,6 +89,10 @@ input[type="search"]::-webkit-search-cancel-button {
     appearance: none;
 }
 
+.main-container{
+    width: 100%;
+}
+
 button{
     appearance: none;
     padding: .4rem .7rem;
@@ -110,6 +114,7 @@ button{
     gap: .5rem;
     line-height: 3rem;
     font-weight: bold;
+    width: 100%;
 }
 
 .today-details{
@@ -174,7 +179,6 @@ button{
 
 .day{
     width: 85%;
-    height: 40vh;
     padding: 1rem;
     display: flex;
     flex-direction: column;
@@ -187,6 +191,8 @@ button{
     color: #ecfeff;
     font-weight: bold;
     background-color: #38bdf8;
+    border: solid .2rem #e2e8f0;
+    flex-wrap:wrap ;
 }
 
 .sunny {
